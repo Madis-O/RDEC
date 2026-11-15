@@ -98,3 +98,20 @@ My Sources:
 [Feleo, Shepard, Gamba, Prediction of Detonation-Induced Disturbances Propagating Upstream into Inlets of Rotating Detonation Combustors, OSTI](https://www.osti.gov/servlets/purl/1995224)
 
 [15-Nov-2026]
+
+
+
+
+
+##  Fuel type
+
+Sixth problem is fuel and its simple, **hydrogen !!** Its a gas, mixes almost instantly and detonates easy, thats why most RDE research uses it. Jet fuel is a liquid so it has to turn into droplets and then vapor and then mix, all before the wave comes back around, soooo much harder and just more bullshit to take. Liquid hydrogen is also freezing cold so it works as the wall coolant, same trick as rockets, and it kills my cold start problem too. Catch is it takes up about 4x the space of kerosene for the same energy so it needs big round insulated tanks. Thats the planes problem though not the engines OR mine. Backup plan if hydrogen ever gets annoying is kerosene with some hydrogen mixed in 
+
+My Sources:
+
+
+[Numerical Study on Droplet Evaporation and Propagation Stability in Normal-temperature Two-phase Rotating Detonation System, arXiv](https://arxiv.org/pdf/2203.10288)
+
+[Influence of Gaseous Hydrogen Addition on Initiation of Rotating Detonation in Liquid Fuel-Air Mixtures, Energies (MDPI)](https://www.mdpi.com/1996-1073/13/19/5101)
+
+[15-Nov-2026]
