@@ -206,7 +206,9 @@ My Sources:
  
 [15-Nov-2026]
  
- 
+Update: redid the cooling with a proper rocket heat formula and the spike included, margin at 5 to 1 comes out around 2.1 instead of 1.21. Real answer is somewhere between the two. 5 to 1 stays.
+
+[15-Nov-2026]
  
  
 ##  Throat and ring size
@@ -245,3 +247,147 @@ My Sources:
 [Connolly-Boutin, Detonation Physics-Based Modelling and Design of a Rotating Detonation Engine, thesis](https://core.ac.uk/download/335015288.pdf)
  
 [15-Nov-2026]
+
+Update: the 3.0 waves was real math on a guessed temperature. Ring is now 120 mm with a 10 mm gap, see the next parts for why as my fucking god it's a whole rabbit hole, I love it though.
+
+[15-Nov-2026]
+
+
+##  Cooling the spike and warming the oxygen
+ 
+The aerospike sits right in the exhaust and the throat is the hottest spot on any rocket, so it needs cooling too obviously. My first thought was hollow it out and run the oxygen through veins in it, which is what LEAP 71 does. BUUUT if that wall punctures the oxygen sprays into exhaust thats full of leftover hydrogen and burns right at the hole, hole gets bigger, more oxygen, and it feeds itself completely tearing my fucking engine apart. A hydrogen leak just blows cold hydrogen along the wall cus theres no spare oxygen for it to burn with. So therefor hydrogen cools EVERYTHING. Problem two is the oxygen then shows up at the injector as a freezing liquid and it only gets about 33 millionths* (if I have that right) of a second to mix before the next wave. So same idea as the vapor chamber in my laptop (ASUS ROG G16, totally not a flex lol just straight inspo that sparked the thought), the hydrogen carries the heat away from the walls and hands it to the oxygen in a heat exchanger away from the flame. Both arrive as gas and everything works according to math.
+ 
+```
+(90 mm ring, 60 mm long, gets redone in the sizing)
+ 
+ring walls          27.7 MW/m2 x 339 cm2            = 0.94 MW
+spike               124 cm2, thins out fast         = 0.23 MW
+total into walls                                    = 1.17 MW
+hydrogen can soak   0.284 kg/s up to 600 K          = 2.49 MW
+margin              2.49 / 1.17                     = 2.1
+ 
+same thing with the old 9.6% rule
+walls dump                                          = 2.06 MW
+margin              2.50 / 2.06                     = 1.2
+ 
+oxygen to gas       1.42 kg/s x 0.31 MJ/kg          = 0.44 MW
+```
+ 
+So. I've got two heat estimates that disagree by double which is annoying as fuck. The first is the normal rocket formula, the second is borrowed from an air breathing lab ring. NASA measured a kerosene ring and got heat close to normal rocket theory so its probably nearer 2 than 1.2. Either way its above 1 and the hydrogen has the 0.44 MW to spare for the oxygen. The catch with the exchanger is obvious, its hydrogen and oxygen one wall apart, if that cracks they mix and everything goes to shit and falls apart dramatically. Difference is that wall sits somewhere cool and quiet so it can be thick and **double walled with a gap** in between, so a leak goes into the gap and out. In the spike it would be thin, in the hottest spot, getting hammered 30 000 times a second. The puncture and leak part is general rocket knowledge, still gotta find a proper source for it.
+ 
+*I am always open with my AI usage and the mathematics here was heavy lifted by Claude as I am no mathematician, mathematic table formatted by Claude*
+ 
+My Sources:
+ 
+[New aerospike engine for space travel successfully tested (LEAP 71), 3Printr](https://www.3printr.com/new-aerospike-engine-for-space-travel-successfully-tested-2676201/)
+ 
+[Teasley et al., Heat Transfer Measurements of NASA Liquid Kerosene/Oxygen Rotating Detonation Rocket Engine, NASA NTRS](https://ntrs.nasa.gov/api/citations/20240015029/downloads/NASA%20Calorimetry%20RP%20RDRE%20AIAA%20Teasley%20Final.pdf)
+ 
+[15-Nov-2026]
+ 
+ 
+ 
+ 
+##  Why the ring grew
+ 
+Turns out how warm the mix is when it enters the ring decides the wave count almost by itself. Cold gas is denser and its grain (idk if I explained it already but grain is the space that the shockwave wants to use up.) is bigger so each wave eats a bigger chunk of ring and fewer fit. And I cant pin that temperature down cus it depends on the wall heat, which I have two estimates for. So my clean 3.0 waves was built on a guess which I know I know isn't amazing but hey can you blame me ?? I'm not even an engineer just a bored fucking guy.
+ 
+```
+mix temperature     waves in a 90 mm ring     ring size for 3 waves
+180 K (cold)        1.5                       181 mm
+260 K               2.4                       115 mm
+300 K (my guess)    3.0                       91 mm
+350 K               4.0                       68 mm
+ 
+low heat estimate   mix arrives around 180 K
+high heat estimate  mix arrives around 345 K
+ 
+flow per ring area
+90 mm, gap = throat     1.70 / 26.7 cm2             = 638 kg/s per m2
+120 mm, 10 mm gap       3.14 x 120 x 10             = 37.7 cm2
+                        1.70 / 37.7 cm2             = 451 kg/s per m2
+pinch                   37.7 / 26.7                 = 1.4
+```
+ 
+So with that I went and looked at what real rocket rings look like. University of Washington ran 25, 51 and 76 mm rings all with a 5 mm gap, the Air Force one is 76 mm and takes up to 0.68 kg/s. I'm pushing 1.7 so bigger than those makes sense. Bigger rings carried more waves in their tests (which is obvious. More space for higher grain), and real waves ran 20 to 40% slower than the ideal speed where I assumed 15%. So forget exactly 3 its several and the ring decides. The actual reason to go bigger is flow per area. Those rings ran at 80 to 400 and mine was at 638 cus I made the gap the same width as the throat, thats outside anything tested. So **120 mm ring, 10 mm gap** and a mild pinch at the exit. Mild cus the Air Force tried tighter pinches and got waves running against eachother and more unsteadiness which obviously isn't satisfactory.
+ 
+*I am always open with my AI usage and the mathematics here was heavy lifted by Claude as I am no mathematician, mathematic table formatted by Claude*
+ 
+My Sources:
+ 
+[Mundt, Knowlen, Kurosaka (2024), Scale effects on rotating detonation rocket engine operation](https://doaj.org/article/5eae51e875de4b09b5c54c29abaa5bad)
+ 
+[Knowlen, Mundt, Kurosaka (2023), Experimental results for 25-mm and 51-mm rotating detonation rocket engine combustors, Shock Waves](https://doi.org/10.1007/s00193-023-01120-x)
+ 
+[Bennewitz et al. (2021), Performance of a Rotating Detonation Rocket Engine with Various Convergent Nozzles and Chamber Lengths, Energies](https://mdpi.com/1996-1073/14/8/2037)
+ 
+[Koch et al., Multi-scale Physics of Rotating Detonation Engines: Autosolitons and Modulational Instabilities, arXiv](https://arxiv.org/pdf/2003.06655)
+ 
+[15-Nov-2026]
+ 
+ 
+ 
+ 
+##  Hydrogen lights too easy
+ 
+I wrote earlier that hydrogen detonates easy. Half the story. It also BURNS easy, and the burning can win. Its called pre ugnition which is same as a petrol engine where the mix lights before the spark. Hydrogen and oxygen can light the instant they touch, right at the injector as a normal flame, and then when the wave comes around the fresh layer it was supposed to eat is already burnt. Purdue ran hydrogen at rocket pressures and mostly got a flame sitting at the injector instead of detonation with eroded injectors. Their pressures were 61 to 381 psia and I'm at 218 so that's my problem too. A German lab ring did get hydrogen and oxygen to detonate, 3 to 5 waves at 25 to 38 kHz in a 68 mm ring, but the waves only ran at about 0.53 to 0.65 of the ideal speed. The fixes are the same as a car which also brought up the following ideas. Higher octane (methane equivelent for jets), dont lug it (push the mix through fast) and kill the hot spots (injector with no dead corners).
+ 
+```
+5 kN, 15 bar            hydrogen (5 to 1)     methane (3 to 1)
+exhaust speed           3193 m/s              2513 m/s
+propellant flow         1.70 kg/s             2.16 kg/s
+tank used               5.25 L/s              2.70 L/s
+fuel can soak           2.49 MW               0.91 MW
+cooling margin          2.1                   0.8
+```
+ 
+Methane is a easy fuel and its what most of the rings that ran well used. Half the tank too. But the exhaust is slower and it cant cool the engine by itself, margin is under 1, so it would need extra tricks which means more moving parts which means more points of failure. Hydrogens one real problem is the injector and thats a design job I can go at directly. NASA ran a ring on liquid oxygen with hydrogen gas and the hardware survived so thankfully its not a dead end. Meaning its LOCKED IN that I'm staying on **hydrogen**, plus my whole research is built on it. The German ring ran at 30 to 50 kg/s per m2 and wanted more and I'm at about 450 so I'm already not lugging it.
+ 
+*I am always open with my AI usage and the mathematics here was heavy lifted by Claude as I am no mathematician, mathematic table formatted by Claude*
+ 
+My Sources:
+ 
+[Stechmann (2017), Experimental Study of High-Pressure Rotating Detonation Combustion in Rocket Environments, Purdue](https://docs.lib.purdue.edu/dissertations/AAI10684279)
+ 
+[Armbruster et al. (2023), Experimental Investigation of a Small-Scale Oxygen-Hydrogen Rotating Detonation Combustor, DLR](https://elib.dlr.de/198217/1/ISTS%20Exp%20Investig%202023-a-2-05.pdf)
+ 
+[Teasley, Fedotowsky, Gradl, Current State of NASA Continuously Rotating Detonation Cycle Engine Development, NASA NTRS](https://ntrs.nasa.gov/api/citations/20220018157/downloads/Current%20State%20of%20NASA%20Continuous%20Detonation%20Cycle%20Engine%20Development%20AIAA%20Teasley%20paper.pdf)
+ 
+[15-Nov-2026]
+ 
+ 
+ 
+ 
+##  Injector
+ 
+This is the part that decides if hydrogen works at all which both rings I read about use the same layout, pairs of holes with the two jets aimed at eachother, one hydrogen one oxygen. Two garden hoses pointed so the streams crash together for a great violent mix. They stay in separate pipes the whole way and only meet where they collide, inside the ring and never premixed or carburated whatever the term is. I want them to mash in the middle of the gap and not against the metal so if a flame does sit somewhere its sitting in gas. Too close to the face and the flame parks on the metal, too far out and the bottom of the ring holds gas that isnt mixed yet. So a few mm off the face. And lots of small pairs over a few big ones for an even coat cus patchy layer means patchy wave.
+ 
+```
+feed pressure       30 bar (twice the ring)
+ 
+hole area needed    hydrogen 168 mm2      oxygen 197 mm2
+ 
+pairs     hydrogen hole     oxygen hole     spacing
+36        2.4 mm            2.6 mm          10.5 mm
+72        1.7 mm            1.9 mm          5.2 mm
+120       1.3 mm            1.5 mm          3.1 mm
+240       0.9 mm            1.0 mm          1.6 mm
+ 
+120 pairs
+hydrogen  168 / 120 = 1.40 mm2 each       = 1.3 mm hole
+oxygen    197 / 120 = 1.64 mm2 each       = 1.5 mm hole
+spacing   377 mm around / 120             = 3.1 mm
+```
+ 
+Going too small has its own bullshit. Tiny holes clog,tiny jets run out of push before they reach the middle and the holes need metal between them. So **120 pairs**, holes come out almost the same size as the German ring (1.0 and 1.5 mm) which has been built and fired and theres still about 1.7 mm of metal between holes. Not gonna call it the best though cus the German ring had slow waves and they wanted to redo their injector, nobody has a proven best for this yet. Hole sizes assume both arrive as cold gas around 200 to 230 K and that only 80% of each hole actually flows.
+ 
+*I am always open with my AI usage and the mathematics here was heavy lifted by Claude as I am no mathematician, mathematic table formatted by Claude*
+ 
+My Sources:
+ 
+[Armbruster et al. (2023), Experimental Investigation of a Small-Scale Oxygen-Hydrogen Rotating Detonation Combustor, DLR](https://elib.dlr.de/198217/1/ISTS%20Exp%20Investig%202023-a-2-05.pdf)
+ 
+[Bennewitz et al. (2021), Performance of a Rotating Detonation Rocket Engine with Various Convergent Nozzles and Chamber Lengths, Energies](https://mdpi.com/1996-1073/14/8/2037)
+ 
+[15-Nov-2026]
+ 
