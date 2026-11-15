@@ -79,3 +79,22 @@ My Sources:
 [Ullman, Raman (2024), Influence of injector configuration on secondary wave formation and propagation in a rotating detonation combustor](https://doaj.org/article/3d620933278d46bebdb621a02673c47e)
 
 [15-Nov-2026]
+
+
+
+## Vibration
+
+Fifth problem is vibration and its a **BIG** one. The wave hits the walls thousands of times (like 1-10 kHz holy fuck) a second so everything gets kicked at a fixed rhythm. and like I said one wave only is like a vibration motor, one big kick per lap, so several waves smooth it out. The real danger is **resonance**. Every part rings at its own pitch like a wine glass or harmonics in a guitar, and if the wave rhythm lands near that pitch the part shakes WAY harder than the detonation alone would make it. And the wave pitch isnt fixed, it moves with the wave count (few to tens of kilohertz) and with the heat, so one tuned fix wont cover it. Gas turbine combustors already use **Helmholtz resonators** for this (a hollow cavity on a narrow neck tuned to one pitch, kinda like a bottle) and theres even a patent for RDE liners with a few different resonators mixed in rows. My idea is a ring of **quarter-wave cavities** machined straight into the outer wall at different depths so they cover a few pitches, plus **choked injectors** so the refill stays steady and the chamber pressure swings cant shove back into the supply. Though there are some catches:
+Cavities fight the regenerative cooling channels for wall space, and a choked injector burns some of the pressure gain, so the compressor has to push harder. Thats fine though because we only need around 12:1 and modern big engines go way past that (like 60:1), plus RDEs gain the most at low pressure ratios. Gotta find a proper source for the choked injector and quarter-wave bits cus right now thats my own thinking.
+
+My Sources:
+
+[Acoustically absorptive liners for passive control of unwanted acoustic modes in rotating detonation combustors, USPTO patent US12234773](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12234773)
+
+[Apparatus for damping acoustic vibrations in a combustor (Helmholtz resonator), USPTO patent US6634457](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/6634457)
+
+[Aero-Thermal Characterization of Accelerating and Diffusing Passages Downstream of Rotating Detonation Combustors, OSTI](https://www.osti.gov/biblio/2499549)
+
+[Feleo, Shepard, Gamba, Prediction of Detonation-Induced Disturbances Propagating Upstream into Inlets of Rotating Detonation Combustors, OSTI](https://www.osti.gov/servlets/purl/1995224)
+
+[15-Nov-2026]
