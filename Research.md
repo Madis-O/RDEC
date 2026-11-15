@@ -149,3 +149,99 @@ My Sources:
 Update: all of this is the old turbojet route (air flow, compressor, Mach 0.8). SO it's all just dead numbers, redoing it for the rocket. The cell size and gap rules should still apply. 
 
 [15-Nov-2026]
+
+# The Rocket Route (which should've been so from the start)
+ 
+##  Thrust, feed and pressure to consideration
+ 
+No compressor anymore so the basics had to be picked again. Thrust first cus it decides how much propellant flows and that decides everything after it. I went with the same size as the aerospike LEAP 71 fired so theres a real engine to hold mine against which makes this much easier on me. Theirs is kerosene, mine is hydrogen powered (typical for many), the thrust number doesnt really care. Then something has to push the propellant into the ring. Pumps mean light tanks but its a turbine and compressor all over again, so **pressure-fed** it is. Thick heavy tanks but basically no moving parts which if you're a engineer or someone with more than 5 brain cells that means less points of failure. 
+ 
+```
+thrust          5 kN
+feed            pressure fed (tanks pumped up, no pump since I already weighed the pros and cons)
+ring pressure   15 bar = about 218 psi
+```
+ 
+218 psi sounded INSANE to me considering I've only ever dealt or worked with things that are not to that extent. So I weighed it to other things for relativity. Road bike tyre is 100 to 120 psi so its on the gentle end for a rocket. More pressure makes the ring smaller and the thrust bigger, but pressure fed means the tanks gotta hold even more than the ring does, so medium it is. Loosely locked if that's even a way to put it, might move.
+ 
+My Sources:
+ 
+[New aerospike engine for space travel successfully tested (LEAP 71), 3Printr](https://www.3printr.com/new-aerospike-engine-for-space-travel-successfully-tested-2676201/)
+ 
+[15-Nov-2026]
+ 
+ 
+ 
+ 
+##  Mix ratio
+ 
+How much oxygen goes in per kilo of hydrogen. Perfect burn is 8 to 1, everything gets used up and only steam is left. My gut said slightly rich so like 6 to 7.2. Rich was right but my numbers were NOT. Extra hydrogen is super light so the exhaust shoots out faster and the flame runs cooler, same as running a car rich. BUT. Yes but hydrogen is bulky as fuck so the tanks grow, and the detonation likes it closer to 8.
+ 
+```
+O2 per kg H2    exhaust speed    tank used    cooling margin    grain size
+4               3248 m/s         5.90 L/s     1.52              0.96 mm
+5               3193 m/s         5.25 L/s     1.21              0.65 mm
+6               3105 m/s         4.85 L/s     1.01              0.54 mm
+8               2891 m/s         4.41 L/s     0.76              0.51 mm
+ 
+cooling margin = heat the hydrogen can soak / heat the walls dump into it
+ 
+at 5 to 1:
+hydrogen can soak   0.284 kg/s x 8.8 MJ/kg          = 2.50 MW
+walls dump          9.6% x 0.179 kg/s x 120 MJ/kg   = 2.06 MW
+margin              2.50 / 2.06                     = 1.21
+ 
+flow for 5 kN       5000 N / (3193 m/s x 0.92)      = 1.70 kg/s
+hydrogen            1.70 / 6                        = 0.284 kg/s
+oxygen              1.70 - 0.284                    = 1.42 kg/s
+```
+ 
+Cooling margin is the one that decides it. Under 1 means the walls cook up which is no bueno. At 6 its 1.01 which is zero safety, and my whole 6 to 7.2 guess fails right there. 4 has the fastest exhaust but burns 22% more tank than 6 and the grain nearly doubles. So **5 to 1**, 20% spare on cooling and under 2% off the best exhaust speed. The 9.6% wall heat number is borrowed from an air breathing hydrogen RDE so a rocket is probably worse, and the grain sizes are scaled from a number thats not sourced yet. Trust the trend more than the digits ig.
+ 
+*I am always open with my AI usage and the mathematics here was heavy lifted by Claude as I am no mathematician, mathematic table formatted by Claude*
+ 
+My Sources:
+ 
+[Theuerkauf (2013), Heat Exchanger Design and Testing for a 6-Inch Rotating Detonation Engine, AFIT](https://scholar.afit.edu/etd/845)
+ 
+[15-Nov-2026]
+ 
+ 
+ 
+ 
+##  Throat and ring size
+ 
+The throat is the pinch at the back, same as the pinched part you'd see on most jets and its what holds the pressure in. Make it wider with the same flow and the pressure drops and all the math goes with it. So the throat is the one size that pins the 15 bar in. On mine its not a hole but its a thin slit between the outer wall and the aerospike, so the bigger the ring the thinner the slit. And the waves each want their own stretch of ring, so the ring size also decides how many of them fit.
+ 
+```
+throat passes       638 kg/s per m2 at 15 bar
+throat area         1.70 / 638                      = 0.00267 m2 = 26.7 cm2
+ 
+ring 90 mm across
+gap                 2669 mm2 / (3.14 x 90 mm)       = 9.4 mm
+ 
+grain               0.65 mm
+fresh layer needed  12 x 0.65                       = 7.7 mm
+wave speed          85% of 3334 m/s                 = 2834 m/s
+fresh mix density   2.77 kg/m3
+ 
+waves = flow / (density x gap x layer x wave speed)
+      = 1.70 / (2.77 x 0.0094 x 0.0077 x 2834)      = 3.0
+ 
+room per wave       283 mm around / 3               = about 95 mm
+wave passes a spot  2834 / 0.095                    = about 30 000 times a second
+```
+ 
+Every wave wants aboutt 95 mm of ring to itself, so 60 mm fits 2, 90 fits 3, 120 fits 4. Anything in between sits on like 2.6 waves and would keep flipping and break to more or less. More waves also means more wall for the same hydrogen to cool. Sooo I'm going with **90 mm, 9.4 mm gap, 3 waves**. Whole engine is hand sized now, the turbojet ring was 45 cm. Rocket rings run several waves anyway and NASA even found one wave alone performs worse (like I said earlier same bullshit effect with vibration motor and overall utilization). Still guesses in here so the fresh mix sitting at half the ring pressure, and the gap being the same width as the throat with no extra pinch.
+ 
+*I am always open with my AI usage and the mathematics here was heavy lifted by Claude as I am no mathematician, mathematic table formatted by Claude*
+ 
+My Sources:
+ 
+[Mode-Locked Rotating Detonation Waves: Experiments and a Model Equation, arXiv](https://arxiv.org/pdf/1908.03116)
+ 
+[Teasley et al., Heat Transfer Measurements of NASA Liquid Kerosene/Oxygen Rotating Detonation Rocket Engine, NASA NTRS](https://ntrs.nasa.gov/api/citations/20240015029/downloads/NASA%20Calorimetry%20RP%20RDRE%20AIAA%20Teasley%20Final.pdf)
+ 
+[Connolly-Boutin, Detonation Physics-Based Modelling and Design of a Rotating Detonation Engine, thesis](https://core.ac.uk/download/335015288.pdf)
+ 
+[15-Nov-2026]
