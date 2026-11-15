@@ -16,3 +16,7 @@ Unlike a typical turbojet, which burns fuel as a steady subsonic flame (**deflag
 
 
 *Written purely by hand. No AI assistance with the project this far. Though realistically when shit gets complex and I don't understand I will request help understanding (Thanks Claude ^^)*
+
+<a href="https://nullsec.nl">
+  <img src="https://nullsec.nl/88x31.gif?v=1" alt="NullSec" width="88" height="31">
+</a>
