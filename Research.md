@@ -56,6 +56,10 @@ My Sources:
 
 [15-Nov-2026]
 
+Update: this was written for the turbine route when I was still caught in pure chain of thought. Went rocket instead so the diffuser, duct and turbine stuff is dead. The shocks bouncing back into the ring and the aerospike still count. Ugh fuck. 
+
+[15-Nov-2026]
+
 
 
 ##  Start and stability
@@ -99,6 +103,9 @@ My Sources:
 
 [15-Nov-2026]
 
+Update: no compressor anymore, so the choked injector cost gets paid by tank pressure instead. Rest holds I guess.
+
+[15-Nov-2026]
 
 
 
@@ -113,6 +120,10 @@ My Sources:
 [Numerical Study on Droplet Evaporation and Propagation Stability in Normal-temperature Two-phase Rotating Detonation System, arXiv](https://arxiv.org/pdf/2203.10288)
 
 [Influence of Gaseous Hydrogen Addition on Initiation of Rotating Detonation in Liquid Fuel-Air Mixtures, Energies (MDPI)](https://www.mdpi.com/1996-1073/13/19/5101)
+
+[15-Nov-2026]
+
+Update: hydrogen stays, but its burning with liquid oxygen now instead of air. Tanks are my problem after all. 
 
 [15-Nov-2026]
 
@@ -132,5 +143,9 @@ My Sources:
 [DLR manuscript on annulus mass flux and equivalence ratio effects in a rotating detonation combustor (title not shown, check it)](https://elib.dlr.de/139570/1/Manuskript.pdf)
 
 [Investigating Instabilities in a Rotating Detonation Combustor, ASME Turbo Expo 2019, OSTI](https://www.osti.gov/servlets/purl/1766550)
+
+[15-Nov-2026]
+
+Update: all of this is the old turbojet route (air flow, compressor, Mach 0.8). SO it's all just dead numbers, redoing it for the rocket. The cell size and gap rules should still apply. 
 
 [15-Nov-2026]
