@@ -55,3 +55,27 @@ My Sources:
 [Harroun, Heister, Ruf, Experimental Validation of Nozzle Flow Simulations for Rotating Detonation Rocket Engines, NASA NTRS](https://ntrs.nasa.gov/citations/20230009329)
 
 [15-Nov-2026]
+
+
+
+##  Start and stability
+
+Fourth problem is getting it started and keeping the wave alive. Starting is the hard part cus its a COLD start, same reason a cold diesel needs glow plugs. It also screws with my regenerative cooling idea since cold walls cant soak up any heat yet, so the fuel goes in cold and mixes like shit. Real engines light it with a **pre-detonator**, a small tube stuck on the side of the ring where a detonation forms first and then shoots into the chamber. Basically a pulsejet mounted facing the walls. Where you put it and how much energy it has changes how the wave starts, even which way it spins. My idea is to pulse it a few times to warm the walls and let the supply pressure build before the wave catches.
+
+Stability is allll about the refill. The number of waves depends on how much air is flowing, more air tends to mean more waves (and space too), and if the supply drops hard the wave count drops with it. During startup it can even go from 1 wave to 2 all by itself. Weaker secondary waves can also show up and mess with the main ones. One wave only acts like a vibration motor you'd find in a PS4 controller, one big kick per lap so in such I want **several waves** cus I like insanity and its smoother. BUT. Yes but the cost is each wave needs its own fresh mix, so the compressor and injectors gotta push enough flow to keep that wave count stable which means more overall consumption but hey if this goes anywhere and some thirsty headhunter wants it I won't be the one covering billing. Hopefully.
+
+My Sources:
+
+[Mode-Locked Rotating Detonation Waves: Experiments and a Model Equation, arXiv](https://arxiv.org/pdf/1908.03116)
+
+[Effects of Inlet Condition Variations on the Operating Modes of Rotating Detonation Engines, DOAJ](https://doaj.org/article/48889e630674420e9a87c6502a82fcd8)
+
+[Han et al. (2026), Effects of ignition conditions on detonation wave evolution in a rotating detonation engine, BIT](https://pure.bit.edu.cn/en/publications/effects-of-ignition-conditions-on-detonation-wave-evolution-in-a-/)
+
+[Pre-detonator design and testing for rotating detonation combustors, Springer (CEAS Space Journal)](https://link.springer.com/article/10.1007/s12567-025-00605-y)
+
+[Wang, Qiao, Le (2021), Combustion Characteristics in Rotating Detonation Engines, International Journal of Aerospace Engineering](https://doaj.org/article/a777536c82bc4922b73d1e32f6f0f866)
+
+[Ullman, Raman (2024), Influence of injector configuration on secondary wave formation and propagation in a rotating detonation combustor](https://doaj.org/article/3d620933278d46bebdb621a02673c47e)
+
+[15-Nov-2026]
