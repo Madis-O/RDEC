@@ -390,4 +390,56 @@ My Sources:
 [Bennewitz et al. (2021), Performance of a Rotating Detonation Rocket Engine with Various Convergent Nozzles and Chamber Lengths, Energies](https://mdpi.com/1996-1073/14/8/2037)
  
 [15-Nov-2026]
+
+
+
+
+ ##  Does it all work together
  
+Picking every part one by one is nice but they all push on eachother, so everything went into one script that sizes the whole rocket and checks each pick against the rest. Ran it twice cus I still have two heat estimates and cant narrow it. Nothing fails. 6 things to keep an eye on though fuck.
+ 
+```
+5 kN · hydrogen + oxygen 5 to 1 · 1.70 kg/s · ring 15 bar · feed 30 bar
+ring 120 mm · gap 10 mm · 50 mm long · 120 jet pairs
+ 
+throat area         26.7 cm2
+ring face           3.14 x 120 x 10                 = 37.7 cm2
+pinch               37.7 / 26.7                     = 1.41
+flow per ring area  1.70 / 37.7 cm2                 = 452 kg/s per m2
+ 
+                            low heat        high heat
+heat into walls             1.59 MW         2.07 MW
+hydrogen can soak           2.49 MW         2.49 MW
+cooling margin              1.56            1.20
+hydrogen leaves walls at    381 K           about 500 K
+hydrogen at the injector    275 K           391 K
+oxygen at the injector      200 K           200 K
+waves                       2.6             4.4
+wave rate                   19 kHz          25 kHz
+fresh layer                 8.5 mm          about 7 mm
+jets meet                   2.6 mm off the face (both)
+ 
+aerospike           114 mm long · exhaust leaves at Mach 2.38
+whole engine        240 mm long · 156 mm across (390 mm with the exchanger)
+tanks               hydrogen about 37 bar · oxygen about 32 bar · drain 5.25 L/s
+ 
+hot hydrogen is thinner so the same hole passes less of it
+holes sized for 275 K, hydrogen arrives at 391 K    mix drifts 5 to about 6
+holes sized for 391 K, hydrogen arrives at 275 K    mix drifts 5 to about 4.2
+```
+ 
+What passes in both cases is thrust, the pinch (Air Force tested 1.23, 1.62 and 2.40 so 1.41 is on the mild side), flow per area, the exchanger pushing heat the right way with both arriving as gas, and the gap, length and diameter all being way above what the wave needs. The jets hit eachother with nearly equal push so the mix goes straight down the ring. What changed is the pinch costs heat. The narrowing part between the ring and the throat adds 0.58 MW I hadnt counted, so the margin is 1.56 at best and 1.20 at worst instead of the 2.1 from before.
+ 
+The one that only showed up cus everything was in one place is the mix drifting with temperature. Two ways to fix it. A control valve, which is basically fuel injection with an ECU or fixed holes sized for the worst case, which is a carb with fixed jets. Went with fixed holes sized for hot hydrogen. No moving parts and when its wrong it runs rich, cooler flame and more coolant, so it fails toward safe. Sized the other way it fails lean and thats where the walls cook. Also had to pick a route for the hydrogen. In at the nozzle end, forward through the outer wall, across the injector plate, back down the inner wall and the spike, up a tube on the axis into the exchanger and then to the manifold. One long path so nothing is left uncooled, the 5 bar it loses on the way is a guess.
+ 
+Still watching: wave count is 2.6 to 4.4 so several but never a clean number. The pressure right behind a wave peaks around 172 bar against a 30 bar feed so the jets get blocked every single pass, sadly thats just how these work. Pre ignition is NOT in the math, the cold mix wont light by itself between waves but hot burnt gas touching it is the real risk. Wall thickness is somewhere between 0.7 mm (average pressure) and 7.5 mm (if the peak hit everywhere at once, which it doesnt). And nothing here has been stress checked.
+ 
+*I am always open with my AI usage and the mathematics here was heavy lifted by Claude as I am no mathematician, mathematic table formatted by Claude*
+ 
+My Sources:
+ 
+[Bennewitz et al. (2021), Performance of a Rotating Detonation Rocket Engine with Various Convergent Nozzles and Chamber Lengths, Energies](https://mdpi.com/1996-1073/14/8/2037)
+ 
+[Knowlen, Mundt, Kurosaka (2023), Experimental results for 25-mm and 51-mm rotating detonation rocket engine combustors, Shock Waves](https://doi.org/10.1007/s00193-023-01120-x)
+ 
+[15-Nov-2026]
