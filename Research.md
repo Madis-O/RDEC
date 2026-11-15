@@ -115,3 +115,22 @@ My Sources:
 [Influence of Gaseous Hydrogen Addition on Initiation of Rotating Detonation in Liquid Fuel-Air Mixtures, Energies (MDPI)](https://www.mdpi.com/1996-1073/13/19/5101)
 
 [15-Nov-2026]
+
+
+##  Dimensions
+
+Seventh problem is shape and size and this is where it gets real numberful (if thats even a real word). The following is a nightmare but thats the consequences of engineering. and everything here is a first guess so its marked **to verify**. Ring size comes from how much air the engine swallows, so start there. My own cycle script (turbojet at Mach 0.8, 11 km, hydrogen, 20:1 pressure ratio, 1400 K) says 0.716 kN of thrust per 1 kg/s of air, so 15 kN needs about 21 kg/s of air and roughly 190 g/s of hydrogen. The compressor makes about 676 kPa at the ring entrance. The holes are **choked** so they pass around 1090 kg/s per m^2 of hole, and if half the ring face is holes thats about 540 kg/s per m^2 over the whole ring. Lab RDEs run 50 to 500 so we're in range. Area needed is 21 ÷ 540 = about 0.038 m^2. With a 2 cm gap the ring goes round 0.038 ÷ 0.02 = 1.9 m, so about 0.6 m across. A thin gap makes a HUGE hoop, with 8 mm it would be 1.5 m, so wide gap it is for now. The wave also needs room, a thesis gives rules of thumb. Cell size (the natural grain of the detonation) is about 9.35 mm at normal pressure and shrinks with pressure, so at roughly 3 bar (my guess) its about 3 mm. The wave needs about 12 cells of length so about 36 mm, the gap should be about 0.2 of that and at least 2.5 cells so 8 mm minimum, my 20 mm is well above that but I dont know yet if a gap that wide still holds one clean wave. Ring length has no hard rule so I picked 2 to 3 times the 36 mm, about 7 to 11 cm. Final ring is about 0.6 m across, 2 cm gap, 7 to 11 cm long, several waves. And wow fuck me I'll look like a Waterloo student after typing all of this fuck me.
+
+*I am always open with my AI usage and the mathematics here was heavy lifted by Claude as I am no mathematician*
+
+My Sources:
+
+[Connolly-Boutin, Detonation Physics-Based Modelling and Design of a Rotating Detonation Engine, thesis](https://core.ac.uk/download/335015288.pdf)
+
+[Operability of a Natural Gas-Air Rotating Detonation Engine, OSTI](https://www.osti.gov/servlets/purl/1774971)
+
+[DLR manuscript on annulus mass flux and equivalence ratio effects in a rotating detonation combustor (title not shown, check it)](https://elib.dlr.de/139570/1/Manuskript.pdf)
+
+[Investigating Instabilities in a Rotating Detonation Combustor, ASME Turbo Expo 2019, OSTI](https://www.osti.gov/servlets/purl/1766550)
+
+[15-Nov-2026]
