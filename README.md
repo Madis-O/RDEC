@@ -14,6 +14,12 @@ Obviously I've had somewhat a history with Standard Static Jet Engines and being
 ## RDE and how it works (from my understanding)
 Unlike a typical turbojet, which burns fuel as a steady subsonic flame (**deflagration**), an RDE burns it with **detonation**. An RDE is a outer cylinder with a center body (a cylinder or aerospike) inside it. The ring shaped gap between them is the combustion chamber. Fuel and air are injected from the bottom, and one (or multiple like 2-4) detonation wave circles the ring nonstop, burning the fresh mix. The burnt gas leaves out the top as thrust.
 
+## The body
+
+Generated with [PicoGK](https://github.com/leap71/PicoGK) (LEAP 71's open source kernel).
+
+- [Full engine STL (299 MB)](https://github.com/Madis-O/RDREC/releases/download/v3-body/RDREC_body.stl)
+- [Cut-open STL (152 MB)](https://github.com/Madis-O/RDREC/releases/download/v3-body/RDREC_body_cut.stl)
 
 *This is written purely by hand. There is Minimal AI assistance throughout the project right now. When shit gets complex and I don't understand I will request help understanding (Thanks Claude ^^)*
 
