@@ -1,5 +1,10 @@
 # Project R.D.R.E.C.
 
+<p align="center">
+  <img src="RDREC_cut.png" alt="R.D.R.E.C. V3 cut view" width="800">
+</p>
+<p align="center"><i>R.D.R.E.C. V3, cut open. Hydrogen/oxygen rotating detonation rocket with an aerospike.</i></p>
+
 As you may already know I am rather a techy cunt, it's obvious. But what is not known is I have a long history regarding mechanics. all the way from in my teens being a bike mechanic and studying rotary vane engines to now a **boredom project**
 
 
