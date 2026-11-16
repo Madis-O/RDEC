@@ -18,8 +18,8 @@ Unlike a typical turbojet, which burns fuel as a steady subsonic flame (**deflag
 
 Generated with [PicoGK](https://github.com/leap71/PicoGK) (LEAP 71's open source kernel).
 
-- [Full engine STL (299 MB)](https://github.com/Madis-O/RDREC/releases/download/v3-body/RDREC_body.stl)
-- [Cut-open STL (152 MB)](https://github.com/Madis-O/RDREC/releases/download/v3-body/RDREC_body_cut.stl)
+- [Full engine STL (285 MB)](https://github.com/Madis-O/RDREC/releases/download/STL/RDREC_body.stl)
+- [Cut-open STL (145 MB)](https://github.com/Madis-O/RDREC/releases/download/STL/RDREC_body_cut.stl)
 
 *This is written purely by hand. There is Minimal AI assistance throughout the project right now. When shit gets complex and I don't understand I will request help understanding (Thanks Claude ^^)*
 
